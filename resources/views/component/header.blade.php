@@ -12,7 +12,18 @@
           <li><a class="nav-link scrollto {{ request()->is('about_us') ? 'active' : '' }}" href="{{ url('/about_us') }}">Tentang Kami</a></li>
           <li><a class="nav-link scrollto {{ request()->is('article') ? 'active' : '' }}" href="{{ url('/article') }}">Artikel</a></li>
           <li><a class="nav-link scrollto {{ request()->is('registration') ? 'active' : '' }}" href="{{ url('/registration') }}">Pendaftaran</a></li>
-          <li><a class="nav-link scrollto" href="{{ url('/login') }}"><button class="btn btn-primary" type="submit" style="border-radius: 24px;border:none;background-color: #94CB3A;">Login</button></a></li>
+          <li>
+            @if (Auth::check())
+                <a class="nav-link scrollto" href="{{ url('/dasbor') }}">
+                    <button class="btn btn-primary rounded-pill">Dashboard</button>
+                </a>
+            @else
+                <a class="nav-link scrollto" href="{{ url('/login') }}">
+                    <button class="btn btn-primary rounded-pill">Login</button>
+                </a>
+            @endif
+        </li>
+        
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
