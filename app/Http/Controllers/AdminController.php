@@ -10,12 +10,13 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
-    
+    //Menampilkan Halaman Login
     public function login()
     {
         return view('/login');
     }
 
+    //Proses Autenfikasi Login
     public function login_action(Request $request) 
     {
         $request->validate([
@@ -30,6 +31,7 @@ class AdminController extends Controller
         return back()->withErrors(['username' => 'Username atau Password salah!']);
     }
 
+    //Mengirim data ke Dasbor Admin
     public function dasbor()
     {
         $artikel = Artikel::all()->count();
@@ -39,6 +41,7 @@ class AdminController extends Controller
         return view('admin.dasbor', compact('artikel', 'pendaftar','anggota'));
     }
 
+    //Proses Logout
     public function logout(Request $request) {
         Auth::logout();
         $request->session()->invalidate();

@@ -10,6 +10,7 @@ use Carbon\Carbon;
 
 class GuestController extends Controller
 {
+    //Mengirim data ke Halaman Beranda
     public function index()
     {
         $artikel = Artikel::select('id','judul','gambar','penulis','kategori','tanggal')
@@ -22,11 +23,13 @@ class GuestController extends Controller
         return view('index',compact('artikel'));
     }
 
+    //Menampilkan Halaman Tentang Kami (Guest)
     public function tentang_kami()
     {
         return view('tentang_kami');
     }
     
+    //Proses Hitung Kategori
     private function hitungKategori() {
         return [
             'berita' => Artikel::where('kategori', 'berita')->count(),
@@ -35,6 +38,7 @@ class GuestController extends Controller
         ];
     }
 
+    //Mengirim Data ke Halaman Artikel (Guest)
     public function artikel()
     {
         $artikel = Artikel::orderBy('updated_at','desc')->get();
@@ -42,6 +46,7 @@ class GuestController extends Controller
         return view('artikel', compact('artikel','hitung'));
     }  
 
+    ////Mengirim Data ke Halaman Detail Artikel (Guest)
     public function detail_artikel(string $id)
     {
         $detail_artikel = Artikel::find($id);
@@ -50,6 +55,7 @@ class GuestController extends Controller
         return view('detail_artikel', compact('detail_artikel','hitung','artikel'));
     }
 
+    //Mengirim Data ke Halaman Kategori Artikel (Guest)
     public function kategori_artikel(string $var)
     {
         $kategori = Artikel::where('kategori', $var)->get();
@@ -60,11 +66,13 @@ class GuestController extends Controller
         return view('artikel_kategori', compact('kategori','hitung','var','artikel'));
     }
 
+    //Menampilkan Halaman Pendaftaran
     public function pendaftaran()
     {
         return view('pendaftaran');
     }
 
+    //Proses Input data pendaftar baru
     public function pendaftaran_submit(Request $request)
     {
         $pendaftar = new Pendaftaran();

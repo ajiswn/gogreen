@@ -10,26 +10,21 @@ use Session;
 
 class ArtikelController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
+    // Halaman Utama Artikel
     public function index()
     {
         $artikel = Artikel::all();
         return view('admin.artikel', compact('artikel'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    //Ke Halaman Tambah Artikel
     public function create()
     {
         return view('admin.tambah_artikel');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    //Proses Input Artikel Baru
     public function store(Request $request)
     {
         Artikel::create([
@@ -44,12 +39,14 @@ class ArtikelController extends Controller
         return redirect('artikel')->with('success','Artikel baru berhasil ditambahkan!');
     }
 
+    //Mengirim data ke Edit Artikel
     public function edit(string $id)
     {
         $artikel = Artikel::findOrFail($id);
         return view('admin.edit_artikel', compact('artikel'));
     }
 
+    //Proses Update
     public function update(Request $request, string $id)
     {
         $artikel = Artikel::findOrFail($id);
@@ -71,21 +68,15 @@ class ArtikelController extends Controller
         return redirect('artikel')->with('success','Artikel berhasil diedit!');
     }
 
-    public function show($id)
-    {
-        $artikel = Artikel::findOrFail($id);
-        return view('admin.detail_artikel', compact('artikel'));
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
+    //Proses Hapus Artikel
     public function destroy(string $id)
     {
         $artikel = Artikel::findOrFail($id);
+        //Hapus Gambar Artikel jika ada
         if ($artikel->image) {
             Storage::delete($artikel->gambar);
         }
+        //Hapus Artikel
         $artikel->delete();
 
         return redirect('artikel')->with('success','Artikel berhasil dihapus!');
