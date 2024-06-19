@@ -54,8 +54,6 @@
                   <td>{{ $data->penulis }}</td>
                   <td>{{ $data->kategori }}</td>
                   <td>
-                    
-                      <a href="{{ route('artikel.show',$data->id) }}" class="btn btn-info"><i class="bi bi-eye"></i></a>
                       <a href="{{ route('artikel.edit',$data->id) }}" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
                       <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#basicModal" onclick="deleteAction('{{ route('artikel.destroy', $data->id) }}')">
                         <i class="bi bi-trash3"></i>
