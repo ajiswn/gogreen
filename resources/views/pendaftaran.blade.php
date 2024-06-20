@@ -56,6 +56,15 @@
         </div>
       </div>
       <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="card">
+            <div class="card-body text-center">
+              <h2>Formulir Pendaftaran</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center">
         <div class="col-lg-5">
           <div class="card">
             <div class="card-body">
@@ -118,7 +127,7 @@
               </div>
               <div class="col-12 mt-3">
                 <label for="alasan" class="form-label">Alasan Ingin Gabung GoGreen</label>
-                <textarea class="form-control" name="alasan" style="height: 100px"></textarea>
+                <textarea class="form-control" name="alasan" style="height: 95px"></textarea>
               </div>
               <div class="col-12 mt-3">
                 <legend class="col-form-label col-sm-12 pt-0">Sudah Upload Twibbon?</legend>
@@ -131,7 +140,7 @@
                   <label class="form-check-label" for="gridRadios5">Belum</label>
                 </div>
               </div>
-              <div class="text-center">
+              <div class="mt-3">
                 <button type="submit" class="btn btn-primary">Submit</button>
                 <button type="reset" class="btn btn-secondary">Reset</button>
               </div>
