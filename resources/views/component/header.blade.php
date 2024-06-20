@@ -15,7 +15,7 @@
           <li>
             @if (Auth::check())
                 <a class="nav-link scrollto" href="{{ url('/dasbor') }}">
-                    <button class="btn btn-primary rounded-pill">Dashboard</button>
+                    <button class="btn btn-primary rounded-pill">Dasbor</button>
                 </a>
             @else
                 <a class="nav-link scrollto" href="{{ url('/login') }}">
