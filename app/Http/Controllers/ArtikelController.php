@@ -46,7 +46,7 @@ class ArtikelController extends Controller
         return view('admin.edit_artikel', compact('artikel'));
     }
 
-    //Proses Update
+    //Proses Update Artikel
     public function update(Request $request, string $id)
     {
         $artikel = Artikel::findOrFail($id);

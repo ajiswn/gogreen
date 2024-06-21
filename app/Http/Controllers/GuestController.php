@@ -10,7 +10,7 @@ use Carbon\Carbon;
 
 class GuestController extends Controller
 {
-    //Mengirim data ke Halaman Beranda
+    //Mengirim data ke Halaman Beranda (Guest)
     public function index()
     {
         $artikel = Artikel::select('id','judul','gambar','penulis','kategori','tanggal')
