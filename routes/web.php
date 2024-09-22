@@ -5,6 +5,7 @@ use App\Http\Controllers\GuestController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\PendaftaranController;
+use App\Http\Controllers\PengurusController;
 
 //Guests' Routes
     //Route Beranda
@@ -39,7 +40,9 @@ Route::middleware('auth')->group(function () {
     Route::resource('pendaftaran', PendaftaranController::class);
     Route::get('/pendaftaran/diterima/{id}', [PendaftaranController::class, 'diterima'])->name('pendaftaran.diterima');
     Route::get('/pendaftaran/ditolak/{id}', [PendaftaranController::class, 'ditolak'])->name('pendaftaran.ditolak');
+    Route::get('/storage');
 
+    Route::resource('pengurus', PengurusController::class);
 
     Route::get('logout', [AdminController::class, 'logout'])->name('logout');
 });

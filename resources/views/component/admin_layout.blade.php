@@ -106,6 +106,13 @@
         </a>
       </li><!-- End Registration Nav -->
 
+      <li class="nav-item">
+        <a class="nav-link {{ Request::is('pengurus') ? '' : 'collapsed' }}" href="{{ url('/pengurus') }}">
+          <i class="bi bi-person"></i>
+          <span>Pengurus</span>
+        </a>
+      </li><!-- End Registration Nav -->
+
     </ul>
 
   </aside>

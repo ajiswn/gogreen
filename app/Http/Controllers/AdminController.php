@@ -28,7 +28,7 @@ class AdminController extends Controller
             $request->session()->regenerate();
             return redirect()->intended('/dasbor');
         }
-        return back()->withErrors(['username' => 'Username atau Password salah!']);
+        return back()->with('error','Username atau password salah!');
     }
 
     //Mengirim data ke Dasbor Admin

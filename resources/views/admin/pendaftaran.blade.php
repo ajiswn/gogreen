@@ -7,7 +7,7 @@
   <h1>Pendaftaran</h1>
   <nav>
     <ol class="breadcrumb">
-      <li class="breadcrumb-item">Beranda</li>
+      <li class="breadcrumb-item">Dasbor</li>
       <li class="breadcrumb-item active">Pendaftaran</li>
     </ol>
   </nav>
@@ -52,12 +52,12 @@
                 <td>{{ $data->angkatan }}</td>
                 <td>{{ $data->status }}</td>
                 <td>
-                    <a class="btn btn-info" href="{{ route('pendaftaran.show',$data->id) }}"><i class="bi bi-eye"></i></a>
+                    <a class="btn btn-info" href="{{ route('pendaftaran.show',$data->id) }}"><i class="bi bi-eye" title="Detail"></i></a>
                     @if($data->status == 'Proses')
-                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#terimaModal" onclick="terimaAction('{{ route('pendaftaran.diterima', $data->id) }}')">
+                      <button title="Terima" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#terimaModal" onclick="terimaAction('{{ route('pendaftaran.diterima', $data->id) }}')">
                         <i class="bi bi-check-lg"></i>
                       </button>
-                      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#tolakModal" onclick="tolakAction('{{ route('pendaftaran.ditolak', $data->id) }}')">
+                      <button title="Tolak" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#tolakModal" onclick="tolakAction('{{ route('pendaftaran.ditolak', $data->id) }}')">
                         <i class="bi bi-x-lg"></i>
                       </button>
                     @endif
@@ -101,7 +101,7 @@
     </div>
   </div>
 </div>
-<!-- Konfirmasi Terima Modal-->\
+<!-- Konfirmasi Terima Modal-->
 
 <!-- Konfirmasi Tolak Modal -->
 <div class="modal fade" id="tolakModal" tabindex="-1">

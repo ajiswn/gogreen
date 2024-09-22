@@ -1,6 +1,6 @@
 @extends('component.admin_layout')
 
-@section('title', 'Artikel Admin - GoGreen')
+@section('title', 'Pengurus Admin - GoGreen')
 
 @section('body')
 <div class="pagetitle">
@@ -8,7 +8,7 @@
     <nav>
       <ol class="breadcrumb">
         <li class="breadcrumb-item">Dasbor</li>
-        <li class="breadcrumb-item active">Artikel</li>
+        <li class="breadcrumb-item active">Pengurus</li>
       </ol>
     </nav>
 </div><!-- End Page Title -->
@@ -26,7 +26,7 @@
                   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
               @endif
-              <a href="{{route('artikel.create')}}"><button type="button" class="btn btn-primary rounded"><i class="bi bi-plus"></i> Tambah</button></a>
+              <a href="{{route('pengurus.create')}}"><button type="button" class="btn btn-primary rounded"><i class="bi bi-plus"></i> Tambah</button></a>
             </h5>
 
             <!-- Table with hoverable rows -->
@@ -34,25 +34,25 @@
               <thead>
                 <tr class="table-success">
                   <th scope="col">#</th>
-                  <th scope="col">Gambar</th>
-                  <th scope="col">Judul</th>
-                  <th scope="col">Penulis</th>
-                  <th scope="col">Kategori</th>
+                  <th scope="col">Foto</th>
+                  <th scope="col">Nama Lengkap</th>
+                  <th scope="col">Jabatan</th>
+                  <th scope="col">Angkatan</th>
                   <th scope="col">Aksi</th>
                 </tr>
               </thead>
               <tbody>
-                @if(!$artikel->isEmpty())
+                @if(!$pengurus->isEmpty())
                 <?php $no=1; ?>
-                @foreach($artikel as $data)
+                @foreach($pengurus as $data)
                 <tr>
                   <th scope="row">{{ $no }}</th>
                   <td>
-                    <img src="{{asset('storage/' . $data->gambar)}}" width="80" class="img-fluid img-thumbnail" alt="{{ $data->judul }}">
+                    <img src="{{asset('storage/' . $data->foto)}}" width="80" class="img-fluid img-thumbnail" alt="{{ $data->nama_lengkap }}">
                   </td>
-                  <td class="w-50">{{ $data->judul }}</td>
-                  <td>{{ $data->penulis }}</td>
-                  <td>{{ $data->kategori }}</td>
+                  <td>{{ $data->nama_lengkap }}</td>
+                  <td>{{ $data->jabatan->jabatan }}</td>
+                  <td>{{ $data->angkatan }}</td>
                   <td>
                       <a title="Edit" href="{{ route('artikel.edit',$data->id) }}" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
                       <button title="Hapus" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#basicModal" onclick="deleteAction('{{ route('artikel.destroy', $data->id) }}')">
@@ -84,11 +84,11 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header text-center">
-          <h5 class="modal-title">Konfirmasi Hapus Artikel</h5>
+          <h5 class="modal-title">Konfirmasi Hapus Pengurus</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body border-0 text-center">
-            Anda Yakin Ingin Menghapus Artikel Ini?
+            Anda Yakin Ingin Menghapus Pengurus Ini?
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i> Tutup</button>

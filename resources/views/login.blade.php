@@ -10,7 +10,7 @@
           <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
             <div class="d-flex justify-content-center py-4">
-              <a href="index.html" class="logo d-flex align-items-center w-auto">
+              <a href="{{ url('/') }}" class="logo d-flex align-items-center w-auto">
                 <img src="assets/img/logo.png" alt="">
                 <span class="d-none d-lg-block " style="color: #444444;">Go<span style="color: #94CB3A;">Green</span></span>
               </a>
@@ -21,8 +21,8 @@
               <div class="card-body">
 
                 <div class="pt-4 pb-2">
-                  <h5 class="card-title text-center pb-0 fs-4">Login ke Akun Kamu</h5>
-                  <p class="text-center small">Masukkan username dan password Kamu</p>
+                  <h5 class="card-title text-center pb-0 fs-4">Login ke Akun Anda</h5>
+                  <p class="text-center small">Masukkan username dan password Anda</p>
                 </div>
 
                 <form class="row g-3 needs-validation" action="{{ route('login.action') }}" method="POST">
@@ -44,13 +44,17 @@
                       <div class="invalid-feedback">Please enter your password!</div>
                     </div>
                   </div>
-
+                  @if(session()->has('error'))
+                  <div class="col-12 text-danger text-center">
+                    {{ session('error') }}
+                  </div>
+                  @endif
                   <div class="col-12">
                     <button class="btn btn-primary w-100" type="submit">Login</button>
                   </div>
                   <div class="col-12">
                     <p class="text-center mb-0 small">Note: Hanya admin yang bisa login.</p>
-                    <p class="small mb-0 text-center">Bukan admin? <a href="{{ url()->previous() }}">Kembali ke halaman sebelumnya</a></p>
+                    <p class="small mb-0 text-center">Bukan admin? <a href="{{ url('/') }}">Kembali ke Beranda</a></p>
                   </div>
                 </form>
 

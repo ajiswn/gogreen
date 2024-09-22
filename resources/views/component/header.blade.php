@@ -2,7 +2,7 @@
 <header id="header" class="fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center">
       <div class="logo align-items-center me-auto row">
-        <div class="col-3"><a href="index.html"><img src="{{ asset('assets/img/logo.png') }}" alt="" class="d-inline-block align-text-top"></a></div>
+        <div class="col-3"><a href="{{ url('/') }}"><img src="{{ asset('assets/img/logo.png') }}" alt="" class="d-inline-block align-text-top"></a></div>
         <div class="col-9 d-flex align-items-center"><h1 style="text-transform: none ;"><a href="{{ url('/') }}">Go<span style="color: #94CB3A;">Green</span></a></h1></div>
       </div>
 
